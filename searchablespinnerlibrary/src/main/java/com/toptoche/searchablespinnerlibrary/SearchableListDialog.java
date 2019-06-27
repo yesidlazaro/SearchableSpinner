@@ -38,10 +38,6 @@ public class SearchableListDialog extends DialogFragment implements
 
     private String _strTitle;
 
-    private String _strPositiveButtonText;
-
-    private DialogInterface.OnClickListener _onClickListener;
-
     public SearchableListDialog() {
 
     }
@@ -93,9 +89,6 @@ public class SearchableListDialog extends DialogFragment implements
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
         alertDialog.setView(rootView);
 
-        String strPositiveButton = _strPositiveButtonText == null ? "CLOSE" : _strPositiveButtonText;
-        alertDialog.setPositiveButton(strPositiveButton, _onClickListener);
-
         String strTitle = _strTitle == null ? "Select Item" : _strTitle;
         alertDialog.setTitle(strTitle);
 
@@ -119,14 +112,6 @@ public class SearchableListDialog extends DialogFragment implements
         _strTitle = strTitle;
     }
 
-    public void setPositiveButton(String strPositiveButtonText) {
-        _strPositiveButtonText = strPositiveButtonText;
-    }
-
-    public void setPositiveButton(String strPositiveButtonText, DialogInterface.OnClickListener onClickListener) {
-        _strPositiveButtonText = strPositiveButtonText;
-        _onClickListener = onClickListener;
-    }
 
     public void setOnSearchableItemClickListener(SearchableItem searchableItem) {
         this._searchableItem = searchableItem;
